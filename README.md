@@ -1,31 +1,32 @@
-# Lab6
-- Travail individuel
-- Compte pour 2 points
-- Remettre avant la fin du cours du 21 octobre
+Lab6
 
-## Installation
-- Copier tout le contenu du lab 5 dans ce repository (**sans le dossier cachÃ© .git**)
-- Faire un commit et synchroniser
+Travail individuel
+Compte pour 2 points
+Remettre avant la fin du cours du 21 octobre
+Installation
 
-## Objectif
-- ExÃ©cuter un conteneur sur TravisCi qui dÃ©marre les tests unitaires associÃ©s Ã  une app web .net core
+Copier tout le contenu du lab 5 dans ce repository (sans le dossier caché .git)
+Faire un commit et synchroniser
+Objectif
 
-## Ã‰tapes
-### ExÃ©cution du conteneur en local
-- Le dossier **/src** doit contenir les deux dossiers suivants : 
-  - **appweb**: Code source de l'application web
-  - **appweb.unittests**: Code des tests unitaires. Pour crÃ©er un projet de tests, utiliser **dotnet new -t xunittest**. Remplacer le fichier Tests.cs par [celui-ci](https://gist.github.com/ymazieres/37b7dced66808492d4c2b2cb9ab222cd). 
-- Ajouter au fichier project.json du projet **appweb.unittests** la dÃ©pendance au projet **webapp**. 
-- Tester l'exÃ©cution des tests en local. Les tests doivent passer.
-- Faire les modifications nÃ©cessaires pour que les tests unitaires s'exÃ©cutent avec l'instruction **docker run -it --rm -v $PWD/packages:/root/.nuget/packages webapp:test**.
-- Si les tests passent dans le conteneur alors faire un commit est synchroniser sur GitHub .
+Exécuter un conteneur sur TravisCi qui démarre les tests unitaires associés à une app web .net core
+Étapes
 
-### ExÃ©cution du conteneur sur TravisCI
-- Ã€ la racine du repo crÃ©er le fichier **.travis.yml**. Ce fichier doit contenir les instructions nÃ©cessaires pour: 
-  - Pouvoir construire (*docker build ...*) l'image docker contenant l'application web et les tests unitaires. 
-  - ExÃ©cuter le conteneur (*docker run ...*).
-  - Identifier la branche (master) github Ã  aller chercher.
-  - Utiliser une *cache* pour stocker les packages entre les diffÃ©rents "builds" de Travis.
-- Configurer sur https://travis-ci.org/ un compte pour que TravisCI puisse exÃ©cuter le conteneur de tests.  
-- S'assurer que les tests passent sur TracisCI !
+Exécution du conteneur en local
 
+Le dossier /src doit contenir les deux dossiers suivants :
+appweb: Code source de l'application web
+appweb.unittests: Code des tests unitaires. Pour créer un projet de tests, utiliser dotnet new -t xunittest. Remplacer le fichier Tests.cs par celui-ci.
+Ajouter au fichier project.json du projet appweb.unittests la dépendance au projet webapp.
+Tester l'exécution des tests en local. Les tests doivent passer.
+Faire les modifications nécessaires pour que les tests unitaires s'exécutent avec l'instruction docker run -it --rm -v $PWD/packages:/root/.nuget/packages webapp:test.
+Si les tests passent dans le conteneur alors faire un commit est synchroniser sur GitHub .
+Exécution du conteneur sur TravisCI
+
+À la racine du repo créer le fichier .travis.yml. Ce fichier doit contenir les instructions nécessaires pour:
+Pouvoir construire (docker build ...) l'image docker contenant l'application web et les tests unitaires.
+Exécuter le conteneur (docker run ...).
+Identifier la branche (master) github à aller chercher.
+Utiliser une cache pour stocker les packages entre les différents "builds" de Travis.
+Configurer sur https://travis-ci.org/ un compte pour que TravisCI puisse exécuter le conteneur de tests.
+S'assurer que les tests passent sur TracisCI !
