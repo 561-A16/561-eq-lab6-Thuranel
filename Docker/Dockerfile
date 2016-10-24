@@ -1,12 +1,12 @@
 FROM ymazieres/dotnet:compile
 
-WORKDIR /src
+WORKDIR /src/tests
 
 ENV ASPNETCORE_URLS http://+:5000
 
-CMD ["sh", "/script/run.sh"]
+CMD ["sh", "../../script/run.sh"]
 COPY /Docker/run.sh /script/run.sh
-RUN chmod +x /script/run.sh
+RUN chmod +x ../../script/run.sh
 
 COPY /src /src
 
